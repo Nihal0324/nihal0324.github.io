@@ -42,10 +42,8 @@ body {
 
     overflow: hidden;
 
-    animation: splashOut 0.8s ease-in-out 2s forwards;
+    animation: splashOut 1s ease-in-out 2s forwards;
 }
-
-/* Golden light behind logo */
 
 #splash::before {
     content: "";
@@ -63,8 +61,6 @@ body {
     animation: lightPulse 1.5s ease-in-out infinite alternate;
 }
 
-/* Outer golden ring */
-
 .splash-ring {
     position: absolute;
 
@@ -78,8 +74,6 @@ body {
     animation: ringAppear 1.2s ease-out forwards;
 }
 
-/* Rotating decorative ring */
-
 .splash-ring2 {
     position: absolute;
 
@@ -92,8 +86,6 @@ body {
 
     animation: rotateRing 8s linear infinite;
 }
-
-/* Logo */
 
 .splash-logo {
     position: relative;
@@ -110,11 +102,9 @@ body {
     transform: scale(0.45);
 
     animation:
-        logoAppear 1s cubic-bezier(.16,1,.3,1) .1s forwards,
-        logoGlow 1.2s ease-in-out 1s infinite alternate;
+        logoAppear 1.4s cubic-bezier(.16,1,.3,1) .2s forwards,
+        logoGlow 1.5s ease-in-out 1.2s infinite alternate;
 }
-
-/* Text */
 
 .splash-title {
     position: relative;
@@ -132,7 +122,7 @@ body {
     opacity: 0;
     transform: translateY(15px);
 
-    animation: textAppear 0.8s ease-out .45s forwards;
+    animation: textAppear 1s ease-out .5s forwards;
 }
 
 .splash-subtitle {
@@ -149,7 +139,7 @@ body {
 
     opacity: 0;
 
-    animation: textAppear 0.8s ease-out .65s forwards;
+    animation: textAppear 1s ease-out .7s forwards;
 }
 
 
@@ -244,11 +234,9 @@ body {
 
 #main-content {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
 
-    animation: contentAppear 0.9s ease 2.25s forwards;
-
-    padding: 25px 15px 50px;
+    animation: contentAppear 1s ease 2.35s forwards;
 }
 
 @keyframes contentAppear {
@@ -261,6 +249,7 @@ body {
 .container {
     max-width: 950px;
     margin: auto;
+    padding: 25px 15px 50px;
 }
 
 .header {
@@ -381,15 +370,15 @@ body {
 <body>
 
 <!-- =========================
-     SPLASH
+     SPLASH SCREEN
      ========================= -->
 
 <div id="splash">
 
     <div class="splash-ring"></div>
+
     <div class="splash-ring2"></div>
 
-    <!-- Keep logo.jpg in the same folder as index.html -->
     <img
         src="logo.jpg"
         class="splash-logo"
@@ -407,7 +396,7 @@ body {
 
 
 <!-- =========================
-     MAIN PAGE
+     MAIN CONTENT
      ========================= -->
 
 <div id="main-content">
@@ -419,133 +408,126 @@ body {
         <h1>ADI SHANKARACHARYA</h1>
 
         <p>
-            An 8th-century CE Indian philosopher and monk who
-            consolidated the doctrine of Advaita Vedanta and
-            traveled across India to revive Vedic studies.
+            was an 8th-century CE Indian philosopher and monk who
+            consolidated the doctrine of Advaita Vedanta and traveled
+            across India to revive Vedic studies.
         </p>
 
     </div>
 
 
-    <!-- EARLY LIFE -->
+    <!-- EARLY LIFE AND CHILDHOOD -->
 
     <div class="section">
 
         <h2>EARLY LIFE AND CHILDHOOD</h2>
 
-        <h3>Birth</h3>
+        <h3>BIRTH:</h3>
 
         <p>
             Born in Kalady, Kerala, to Nambudiri Brahmin parents
             Sivaguru and Aryamba after long prayers.
         </p>
 
-        <h3>Prodigy</h3>
+        <h3>Prodigy:</h3>
 
         <p>
-            Mastered the four Vedas and Sanskrit by a very young
-            age, traditionally described as eight years old.
+            Mastered the four Vedas and Sanskrit by a very young age
+            (eight years old).
         </p>
 
-        <h3>The Crocodile Incident</h3>
+        <h3>The Crocodile Incident:</h3>
 
         <p>
-            At age eight, a crocodile caught his leg. He used the
-            moment to convince his reluctant mother to let him
-            take Sannyasa (renunciation/monastic life).
+            At age eight, a crocodile caught his leg; he used the
+            moment to convince his reluctant mother to let him take
+            Sannyasa (renunciation/monastic life), promising he would
+            live another 16 years.
         </p>
 
     </div>
 
 
-    <!-- EDUCATION -->
+    <!-- EDUCATION AND TRAVELS -->
 
     <div class="section">
 
         <h2>EDUCATION AND TRAVELS</h2>
 
-        <h3>Finding a Guru</h3>
+        <h3>Finding a Guru:</h3>
 
         <p>
-            Left home and traveled to the banks of the Narmada
-            River, where he found his guru,
-            Govinda Bhagavatpada.
+            Left home and traveled to the banks of the Narmada River,
+            where he found his guru, Govinda Bhagavatpada.
         </p>
 
-        <h3>Nationwide Journey</h3>
+        <h3>Nationwide Journey:</h3>
 
         <p>
             Walked the length and breadth of India to engage in
-            philosophical debates, unify spiritual teachings,
-            and restore Sanatana Dharma.
+            philosophical debates, unify spiritual teachings, and
+            restore Sanatana Dharma.
         </p>
 
-        <h3>Major Debates</h3>
+        <h3>Major Debates:</h3>
 
         <p>
-            Defeated prominent scholars of rival traditions,
-            most notably the ritualist philosopher
-            Mandana Mishra.
+            Defeated prominent scholars of rival traditions, most
+            notably the ritualist philosopher Mandana Mishra.
         </p>
 
     </div>
 
 
-    <!-- LEGACY -->
+    <!-- LEGACY AND MONASTERIES -->
 
     <div class="section">
 
         <h2>LEGACY AND MONASTERIES</h2>
 
-        <h3>Advaita Vedanta</h3>
+        <h3>Advaita Vedanta:</h3>
 
         <p>
-            Wrote foundational commentaries on the Principal
-            Upanishads, the Brahma Sutras, and the Bhagavad Gita.
+            Wrote foundational commentaries on the Principal Upanishads,
+            the Brahma Sutras, and the Bhagavad Gita.
         </p>
 
-        <h3>Four Mathas</h3>
+        <h3>Four Mathas:</h3>
 
         <p>
-            Established four major monasteries in the four
-            corners of India:
+            Established four major monasteries in the four corners of
+            India—at Sringeri (South), Puri (East), Dwarka (West),
+            and Badrinath (North)—to preserve spiritual unity.
         </p>
 
-        <p>
-            <strong>Sringeri</strong> — South<br>
-            <strong>Puri</strong> — East<br>
-            <strong>Dwarka</strong> — West<br>
-            <strong>Badrinath</strong> — North
-        </p>
-
-        <h3>Passing</h3>
+        <h3>Passing:</h3>
 
         <p>
-            Left his mortal body at a young age, traditionally
-            believed to be at 32, in Kedarnath.
+            Left his mortal body at a young age, traditionally believed
+            to be at 32, in Kedarnath.
         </p>
 
     </div>
 
 
-    <!-- TELUGU -->
+    <!-- TELUGU CONTENT -->
 
     <div class="section telugu">
 
         <h2>జగద్గురు శ్రీ ఆది శంకరాచార్య</h2>
 
         <div class="quote">
-            శ్రుతి స్మృతి పురాణానాం ఆలయం కరుణాలయం<br>
+            శ్రుతి స్మృతి పురాణానాం ఆలయం కరుణాలయం
             నమామి భగవత్పాద శంకరం లోక శంకరం
         </div>
+
 
         <h2>విశేషాలు</h2>
 
         <h3>జననం:</h3>
 
         <p>
-            కేరళలోని కాలడీ గ్రామంలో శివగురు, ఆర్యాంబ దంపతులకు
-            జన్మించారు.
+            కేరళలోని కాలడీ గ్రామంలో శివగురు, ఆర్యాంబ దంపతులకు జన్మించారు.
         </p>
 
         <h3>బాల్యం:</h3>
@@ -557,35 +539,34 @@ body {
         <h3>సన్యాసం:</h3>
 
         <p>
-            చిన్న వయస్సులోనే సన్యాసం స్వీకరించి దేశవ్యాప్తంగా
-            పర్యటించారు.
+            చిన్న వయస్సులోనే సన్యాసం స్వీకరించి దేశవ్యాప్తంగా పర్యటించారు.
         </p>
 
         <h3>స్థాపనలు:</h3>
 
         <p>
             దేశం నలుమూలల నాలుగు పీఠాలను
-            (జ్యోతిష పీఠం, శృంగేరి పీఠం, ద్వారకా పీఠం,
-            పూరీ పీఠం) స్థాపించారు.
+            (జ్యోతిష పీఠం, శృంగేరి పీఠం, ద్వారకా పీఠం, పూరీ పీఠం)
+            స్థాపించారు.
         </p>
 
         <h3>సిద్ధాంతం:</h3>
 
         <p>
-            అద్వైత సిద్ధాంతాన్ని బలంగా ప్రచారం చేసి
-            సనాతన ధర్మాన్ని పునరుద్ధరించారు.
+            అద్వైత సిద్ధాంతాన్ని బలంగా ప్రచారం చేసి సనాతన ధర్మాన్ని
+            పునరుద్ధరించారు.
         </p>
 
         <h3>ముక్తి:</h3>
 
         <p>
             ఉత్తరాఖండ్‌లోని కేదార్‌నాథ్ క్షేత్రంలో తన 32వ ఏట
-            భౌతిక శరీరాన్ని విడిచి ముక్తిని పొందారు.
+            భౌతిక శరీరాన్ని విడిచి ముక్తి నీ పొందారు
         </p>
 
         <p>
-            సనాతన ధర్మానికి చెదలు పట్టినప్పుడల్లా పురుగు మందు
-            చల్లి సంస్కరించిన మహనీయుడు శ్రీ ఆదిశంకరాచార్యులు.
+            సనాతన ధర్మానికి చెదలు పట్టినప్పుడల్లా పురుగు మందు చల్లి
+            సంస్కరించిన మహనీయుడు శ్రీ ఆదిశంకరాచార్యులు
         </p>
 
         <div class="quote">
@@ -593,8 +574,8 @@ body {
         </div>
 
         <p>
-            జీవుడు మరియు పరమాత్మ వేరు వేరు కావు,
-            నేనే పరబ్రహ్మను అనే అద్వైత భావన.
+            జీవుడు మరియు పరమాత్మ వేరు వేరు కావు, నేనే పరబ్రహ్మను అనే
+            అద్వైత భావన.
         </p>
 
         <div class="quote">
