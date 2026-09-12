@@ -1,983 +1,617 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Jagadguru Sri Adi Shankaracharya</title>
 
-
 <style>
-
-/* =========================
-   PAGE
-========================= */
-
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background: #fff8ed;
-    color: #3b2415;
-    font-family:
-        Georgia,
-        "Noto Serif Telugu",
-        "Nirmala UI",
-        serif;
-    line-height: 1.75;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #fff8e7;
+    color: #3b2412;
+    line-height: 1.7;
 }
 
-
 /* =========================
-   3 SECOND INTRO
-========================= */
+   SPLASH SCREEN
+   ========================= */
 
 #splash {
-
     position: fixed;
-
     inset: 0;
-
-    z-index: 99999;
+    z-index: 9999;
 
     display: flex;
-
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
-    justify-content: center;
+    background:
+        radial-gradient(circle at center,
+        #6b3b00 0%,
+        #2b1600 45%,
+        #0e0700 100%);
 
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #2b1c0b 0%,
-            #0c0804 45%,
-            #020201 100%
-        );
-
-    animation:
-        splashOut 1s ease-in-out 3s forwards;
+    animation: splashOut 0.8s ease-in-out 2s forwards;
 }
 
+/* Golden light behind logo */
 
-/* Golden light */
-
-.light {
-
-    position: absolute;
-
-    width: 300px;
-
-    height: 300px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(230,185,80,0.30) 0%,
-            rgba(230,185,80,0.10) 40%,
-            rgba(230,185,80,0) 72%
-        );
-
-    animation:
-        lightPulse 2s ease-in-out infinite;
-}
-
-
-/* Golden ring */
-
-.ring {
-
-    position: absolute;
-
-    width: min(78vw, 440px);
-
-    height: min(78vw, 440px);
-
-    border-radius: 50%;
-
-    border: 2px solid
-        rgba(226,181,77,0.85);
-
-    box-shadow:
-        0 0 30px
-        rgba(226,181,77,0.20);
-
-    opacity: 0;
-
-    animation:
-        ringAppear 1.4s
-        cubic-bezier(.16,1,.3,1)
-        .1s forwards;
-}
-
-
-/* Inner ring */
-
-.ring::before {
-
+#splash::before {
     content: "";
-
     position: absolute;
 
-    inset: 18px;
+    width: 280px;
+    height: 280px;
 
     border-radius: 50%;
 
-    border: 1px solid
-        rgba(226,181,77,0.45);
+    background: rgba(255, 190, 50, 0.22);
+
+    filter: blur(35px);
+
+    animation: lightPulse 1.5s ease-in-out infinite alternate;
 }
 
+/* Outer golden ring */
+
+.splash-ring {
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    border: 2px solid rgba(255, 204, 80, 0.7);
+
+    border-radius: 50%;
+
+    animation: ringAppear 1.2s ease-out forwards;
+}
 
 /* Rotating decorative ring */
 
-.ring::after {
-
-    content: "";
-
+.splash-ring2 {
     position: absolute;
 
-    inset: 38px;
+    width: 340px;
+    height: 340px;
+
+    border: 1px dashed rgba(255, 215, 100, 0.55);
 
     border-radius: 50%;
 
-    border:
-        1px dashed
-        rgba(226,181,77,0.35);
-
-    animation:
-        rotateRing 10s linear infinite;
+    animation: rotateRing 8s linear infinite;
 }
 
-
-/* =========================
-   LOGO
-========================= */
+/* Logo */
 
 .splash-logo {
-
     position: relative;
+    z-index: 2;
 
-    width: min(60vw, 340px);
-
-    height: min(60vw, 340px);
+    width: 190px;
+    height: 190px;
 
     object-fit: contain;
 
     border-radius: 50%;
 
     opacity: 0;
-
-    transform:
-        scale(.45)
-        rotate(-10deg);
+    transform: scale(0.45);
 
     animation:
-
-        logoAppear 1.4s
-        cubic-bezier(.16,1,.3,1)
-        .2s forwards,
-
-        logoGlow 1.5s
-        ease-in-out
-        1.2s infinite alternate;
+        logoAppear 1s cubic-bezier(.16,1,.3,1) .1s forwards,
+        logoGlow 1.2s ease-in-out 1s infinite alternate;
 }
 
-
-/* =========================
-   BRAND NAME
-========================= */
-
-.splash-text {
-
-    position: absolute;
-
-    bottom: 8vh;
-
-    text-align: center;
-
-    color: #e5bd62;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 15px;
-
-    font-weight: bold;
-
-    letter-spacing: 3px;
-
-    opacity: 0;
-
-    transform: translateY(15px);
-
-    animation:
-        textAppear .8s
-        ease 1s forwards;
-}
-
-
-.splash-text span {
-
-    display: block;
-
-    margin-top: 8px;
-
-    color: #f7eee0;
-
-    font-size: 10px;
-
-    font-weight: normal;
-
-    letter-spacing: 2px;
-}
-
-
-/* =========================
-   MAIN CONTENT
-========================= */
-
-#main-content {
-
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    animation:
-        contentAppear 1s
-        ease 3.35s forwards;
-}
-
-
-.container {
-
-    width: 100%;
-
-    max-width: 850px;
-
-    margin: auto;
-
-    padding:
-        20px
-        18px
-        50px;
-}
-
-
-/* Header */
-
-header {
-
-    text-align: center;
-
-    padding:
-        25px
-        10px
-        15px;
-}
-
-
-header h1 {
-
-    margin: 0;
-
-    color: #8b4513;
-
-    font-size:
-        clamp(25px, 7vw, 42px);
-
-    line-height: 1.3;
-}
-
-
-header h2 {
-
-    margin-top: 12px;
-
-    color: #9b4d16;
-
-    border: none;
-
-    font-size:
-        clamp(18px, 5vw, 27px);
-}
-
-
-/* =========================
-   SANSKRIT
-========================= */
-
-.quote {
-
-    text-align: center;
-
-    font-size:
-        clamp(16px, 4.5vw, 20px);
-
-    font-weight: bold;
-
-    color: #6f3c13;
-
-    margin: 20px 0;
-
-    line-height: 1.9;
-}
-
-
-/* =========================
-   CONTENT CARDS
-========================= */
-
-.card {
-
-    background: white;
-
-    padding: 22px;
-
-    margin: 20px 0;
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 3px 15px
-        rgba(90,50,15,0.10);
-}
-
-
-.card h2 {
-
-    color: #9b4d16;
-
-    border-bottom:
-        1px solid #d8b08a;
-
-    padding-bottom: 7px;
+/* Text */
+
+.splash-title {
+    position: relative;
+    z-index: 2;
 
     margin-top: 25px;
 
-    font-size: 22px;
+    color: #ffd76a;
+
+    font-size: 21px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    animation: textAppear 0.8s ease-out .45s forwards;
 }
 
+.splash-subtitle {
+    position: relative;
+    z-index: 2;
 
-.card h2:first-child {
+    margin-top: 7px;
 
-    margin-top: 0;
-}
+    color: #fff1c4;
 
+    font-size: 14px;
 
-.card p {
+    letter-spacing: 1.5px;
 
-    margin: 13px 0;
-}
+    opacity: 0;
 
-
-strong {
-
-    color: #7a3910;
-}
-
-
-/* Telugu */
-
-.telugu {
-
-    font-family:
-        "Noto Serif Telugu",
-        "Nirmala UI",
-        "Gautami",
-        serif;
-
-    line-height: 2;
+    animation: textAppear 0.8s ease-out .65s forwards;
 }
 
 
 /* =========================
    ANIMATIONS
-========================= */
+   ========================= */
 
 @keyframes logoAppear {
-
     0% {
-
         opacity: 0;
-
-        transform:
-            scale(.45)
-            rotate(-10deg);
-    }
-
-    60% {
-
-        opacity: 1;
-
-        transform:
-            scale(1.08)
-            rotate(2deg);
-    }
-
-    100% {
-
-        opacity: 1;
-
-        transform:
-            scale(1)
-            rotate(0);
-    }
-}
-
-
-@keyframes logoGlow {
-
-    0% {
-
-        filter:
-            drop-shadow(
-                0 0 3px
-                rgba(226,181,77,.20)
-            );
-    }
-
-    100% {
-
-        filter:
-            drop-shadow(
-                0 0 28px
-                rgba(226,181,77,.60)
-            );
-    }
-}
-
-
-@keyframes ringAppear {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            scale(.25);
+        transform: scale(0.45) rotate(-8deg);
     }
 
     70% {
-
         opacity: 1;
-
-        transform:
-            scale(1.08);
+        transform: scale(1.08) rotate(2deg);
     }
 
     100% {
-
         opacity: 1;
-
-        transform:
-            scale(1);
+        transform: scale(1) rotate(0deg);
     }
 }
 
-
-@keyframes rotateRing {
-
+@keyframes logoGlow {
     from {
-
-        transform:
-            rotate(0deg);
+        filter: drop-shadow(0 0 8px rgba(255, 210, 80, 0.4));
     }
 
     to {
-
-        transform:
-            rotate(360deg);
+        filter: drop-shadow(0 0 28px rgba(255, 210, 80, 0.95));
     }
 }
-
-
-@keyframes lightPulse {
-
-    0% {
-
-        transform:
-            scale(.85);
-
-        opacity: .45;
-    }
-
-    50% {
-
-        transform:
-            scale(1.25);
-
-        opacity: .9;
-    }
-
-    100% {
-
-        transform:
-            scale(.85);
-
-        opacity: .45;
-    }
-}
-
 
 @keyframes textAppear {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(15px);
+        transform: translateY(15px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 }
 
+@keyframes ringAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateRing {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes lightPulse {
+    from {
+        transform: scale(0.8);
+        opacity: 0.4;
+    }
+
+    to {
+        transform: scale(1.25);
+        opacity: 0.8;
+    }
+}
 
 @keyframes splashOut {
-
-    0% {
-
-        opacity: 1;
-
-        visibility: visible;
-    }
-
-    100% {
-
-        opacity: 0;
-
-        visibility: hidden;
-
-        pointer-events: none;
-    }
-}
-
-
-@keyframes contentAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(20px);
-    }
-
     to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
 
 /* =========================
+   MAIN CONTENT
+   ========================= */
+
+#main-content {
+    opacity: 0;
+    transform: translateY(15px);
+
+    animation: contentAppear 0.9s ease 2.25s forwards;
+
+    padding: 25px 15px 50px;
+}
+
+@keyframes contentAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    padding: 25px 10px;
+}
+
+.header h1 {
+    color: #8b4500;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.section {
+    background: #fffdf6;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+
+    box-shadow:
+        0 5px 20px rgba(100, 50, 0, 0.12);
+
+    border-left: 5px solid #c47a00;
+}
+
+.section h2 {
+    color: #914c00;
+    margin-bottom: 15px;
+}
+
+.section h3 {
+    color: #a85c00;
+    margin-top: 18px;
+    margin-bottom: 6px;
+}
+
+.section p {
+    margin-bottom: 10px;
+}
+
+.telugu {
+    font-family: "Noto Sans Telugu",
+                 "Nirmala UI",
+                 sans-serif;
+}
+
+.telugu h1,
+.telugu h2 {
+    font-family: "Noto Sans Telugu",
+                 "Nirmala UI",
+                 sans-serif;
+}
+
+.quote {
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    color: #7b3f00;
+    margin: 20px 5px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #7a5a35;
+    font-size: 14px;
+}
+
+
+/* =========================
    MOBILE
-========================= */
+   ========================= */
 
 @media (max-width: 600px) {
 
-    .container {
-
-        padding:
-            18px
-            13px
-            40px;
-    }
-
-    .card {
-
-        padding: 18px;
-
-        border-radius: 12px;
-    }
-
     .splash-logo {
-
-        width: 62vw;
-
-        height: 62vw;
+        width: 160px;
+        height: 160px;
     }
 
-    .splash-text {
+    .splash-ring {
+        width: 270px;
+        height: 270px;
+    }
 
-        bottom: 8vh;
+    .splash-ring2 {
+        width: 295px;
+        height: 295px;
+    }
 
-        font-size: 13px;
+    .splash-title {
+        font-size: 17px;
+        letter-spacing: 1.5px;
+    }
+
+    .splash-subtitle {
+        font-size: 12px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .section {
+        padding: 19px;
     }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
-<!-- =================================================
-     FRIENDS YOUTH OPENING
-================================================= -->
+<!-- =========================
+     SPLASH
+     ========================= -->
 
 <div id="splash">
 
-    <div class="light"></div>
+    <div class="splash-ring"></div>
+    <div class="splash-ring2"></div>
 
-    <div class="ring"></div>
-
-
+    <!-- Keep logo.jpg in the same folder as index.html -->
     <img
         src="logo.jpg"
         class="splash-logo"
-        alt="Friends Youth Kallur"
-    >
+        alt="Friends Youth Kallur">
 
-
-    <div class="splash-text">
-
+    <div class="splash-title">
         FRIENDS YOUTH • KALLUR
+    </div>
 
-        <span>
-            JAGADGURU SRI ADI SHANKARACHARYA
-        </span>
-
+    <div class="splash-subtitle">
+        JAGADGURU SRI ADI SHANKARACHARYA
     </div>
 
 </div>
 
 
-
-<!-- =================================================
-     MAIN CONTENT
-================================================= -->
+<!-- =========================
+     MAIN PAGE
+     ========================= -->
 
 <div id="main-content">
 
 <div class="container">
 
+    <div class="header">
 
-<header>
+        <h1>ADI SHANKARACHARYA</h1>
 
-<h1>
-జగద్గురు శ్రీ ఆది శంకరాచార్య
-</h1>
+        <p>
+            An 8th-century CE Indian philosopher and monk who
+            consolidated the doctrine of Advaita Vedanta and
+            traveled across India to revive Vedic studies.
+        </p>
 
-<h2>
-Jagadguru Sri Adi Shankaracharya
-</h2>
+    </div>
 
-</header>
 
+    <!-- EARLY LIFE -->
 
+    <div class="section">
 
-<div class="quote">
+        <h2>EARLY LIFE AND CHILDHOOD</h2>
 
-శ్రుతి స్మృతి పురాణానాం ఆలయం కరుణాలయం
+        <h3>Birth</h3>
 
-<br>
+        <p>
+            Born in Kalady, Kerala, to Nambudiri Brahmin parents
+            Sivaguru and Aryamba after long prayers.
+        </p>
 
-నమామి భగవత్పాద శంకరం లోక శంకరం
+        <h3>Prodigy</h3>
 
-</div>
+        <p>
+            Mastered the four Vedas and Sanskrit by a very young
+            age, traditionally described as eight years old.
+        </p>
 
+        <h3>The Crocodile Incident</h3>
 
+        <p>
+            At age eight, a crocodile caught his leg. He used the
+            moment to convince his reluctant mother to let him
+            take Sannyasa (renunciation/monastic life).
+        </p>
 
-<!-- ================= ENGLISH ================= -->
+    </div>
 
-<div class="card">
 
-<h2>
-ENGLISH
-</h2>
+    <!-- EDUCATION -->
 
+    <div class="section">
 
-<p>
+        <h2>EDUCATION AND TRAVELS</h2>
 
-<strong>
-Adi Shankaracharya
-</strong>
+        <h3>Finding a Guru</h3>
 
-was an 8th-century CE Indian philosopher and monk
-who consolidated the doctrine of Advaita Vedanta and
-traveled across India to revive Vedic studies.
+        <p>
+            Left home and traveled to the banks of the Narmada
+            River, where he found his guru,
+            Govinda Bhagavatpada.
+        </p>
 
-</p>
+        <h3>Nationwide Journey</h3>
 
+        <p>
+            Walked the length and breadth of India to engage in
+            philosophical debates, unify spiritual teachings,
+            and restore Sanatana Dharma.
+        </p>
 
+        <h3>Major Debates</h3>
 
-<h2>
-EARLY LIFE AND CHILDHOOD
-</h2>
+        <p>
+            Defeated prominent scholars of rival traditions,
+            most notably the ritualist philosopher
+            Mandana Mishra.
+        </p>
 
+    </div>
 
-<p>
 
-<strong>
-Birth:
-</strong>
+    <!-- LEGACY -->
 
-Born in Kalady, Kerala, to Nambudiri Brahmin parents
-Sivaguru and Aryamba after long prayers.
+    <div class="section">
 
-</p>
+        <h2>LEGACY AND MONASTERIES</h2>
 
+        <h3>Advaita Vedanta</h3>
 
-<p>
+        <p>
+            Wrote foundational commentaries on the Principal
+            Upanishads, the Brahma Sutras, and the Bhagavad Gita.
+        </p>
 
-<strong>
-Prodigy:
-</strong>
+        <h3>Four Mathas</h3>
 
-Mastered the four Vedas and Sanskrit by a very young age.
+        <p>
+            Established four major monasteries in the four
+            corners of India:
+        </p>
 
-</p>
+        <p>
+            <strong>Sringeri</strong> — South<br>
+            <strong>Puri</strong> — East<br>
+            <strong>Dwarka</strong> — West<br>
+            <strong>Badrinath</strong> — North
+        </p>
 
+        <h3>Passing</h3>
 
-<p>
+        <p>
+            Left his mortal body at a young age, traditionally
+            believed to be at 32, in Kedarnath.
+        </p>
 
-<strong>
-The Crocodile Incident:
-</strong>
+    </div>
 
-At age eight, a crocodile caught his leg; he used the
-moment to convince his reluctant mother to let him take
-Sannyasa (renunciation/monastic life).
 
-</p>
+    <!-- TELUGU -->
 
+    <div class="section telugu">
 
+        <h2>జగద్గురు శ్రీ ఆది శంకరాచార్య</h2>
 
-<h2>
-EDUCATION AND TRAVELS
-</h2>
+        <div class="quote">
+            శ్రుతి స్మృతి పురాణానాం ఆలయం కరుణాలయం<br>
+            నమామి భగవత్పాద శంకరం లోక శంకరం
+        </div>
 
+        <h2>విశేషాలు</h2>
 
-<p>
+        <h3>జననం:</h3>
 
-<strong>
-Finding a Guru:
-</strong>
+        <p>
+            కేరళలోని కాలడీ గ్రామంలో శివగురు, ఆర్యాంబ దంపతులకు
+            జన్మించారు.
+        </p>
 
-Left home and traveled to the banks of the Narmada River,
-where he found his guru, Govinda Bhagavatpada.
+        <h3>బాల్యం:</h3>
 
-</p>
+        <p>
+            ఎనిమిదేళ్ల వయసులోనే సమస్త వేద విద్యలను పూర్తి చేశారు.
+        </p>
 
+        <h3>సన్యాసం:</h3>
 
-<p>
+        <p>
+            చిన్న వయస్సులోనే సన్యాసం స్వీకరించి దేశవ్యాప్తంగా
+            పర్యటించారు.
+        </p>
 
-<strong>
-Nationwide Journey:
-</strong>
+        <h3>స్థాపనలు:</h3>
 
-Traveled across India to engage in philosophical debates,
-unify spiritual teachings, and restore Sanatana Dharma.
+        <p>
+            దేశం నలుమూలల నాలుగు పీఠాలను
+            (జ్యోతిష పీఠం, శృంగేరి పీఠం, ద్వారకా పీఠం,
+            పూరీ పీఠం) స్థాపించారు.
+        </p>
 
-</p>
+        <h3>సిద్ధాంతం:</h3>
 
+        <p>
+            అద్వైత సిద్ధాంతాన్ని బలంగా ప్రచారం చేసి
+            సనాతన ధర్మాన్ని పునరుద్ధరించారు.
+        </p>
 
-<p>
+        <h3>ముక్తి:</h3>
 
-<strong>
-Major Debates:
-</strong>
+        <p>
+            ఉత్తరాఖండ్‌లోని కేదార్‌నాథ్ క్షేత్రంలో తన 32వ ఏట
+            భౌతిక శరీరాన్ని విడిచి ముక్తిని పొందారు.
+        </p>
 
-Defeated prominent scholars of rival traditions,
-most notably the ritualist philosopher Mandana Mishra.
+        <p>
+            సనాతన ధర్మానికి చెదలు పట్టినప్పుడల్లా పురుగు మందు
+            చల్లి సంస్కరించిన మహనీయుడు శ్రీ ఆదిశంకరాచార్యులు.
+        </p>
 
-</p>
+        <div class="quote">
+            అహం బ్రహ్మాస్మి
+        </div>
 
+        <p>
+            జీవుడు మరియు పరమాత్మ వేరు వేరు కావు,
+            నేనే పరబ్రహ్మను అనే అద్వైత భావన.
+        </p>
 
+        <div class="quote">
+            సదాశివసమారంభాం శంకరాచార్యమధ్యమామ్ ।<br>
+            అస్మదాచార్యపర్యన్తాం వన్దే గురుపరమ్పరామ్
+        </div>
 
-<h2>
-LEGACY AND MONASTERIES
-</h2>
+    </div>
 
 
-<p>
-
-<strong>
-Advaita Vedanta:
-</strong>
-
-Wrote foundational commentaries on the Principal
-Upanishads, the Brahma Sutras, and the Bhagavad Gita.
-
-</p>
-
-
-<p>
-
-<strong>
-Four Mathas:
-</strong>
-
-Established four major monasteries associated with
-the four directions of India—Sringeri (South),
-Puri (East), Dwarka (West), and Jyotirmath/Badrinath
-tradition (North).
-
-</p>
-
-
-<p>
-
-<strong>
-Passing:
-</strong>
-
-Traditionally believed to have left his mortal body
-at the age of 32 at Kedarnath.
-
-</p>
-
-</div>
-
-
-
-<!-- ================= TELUGU ================= -->
-
-<div class="card telugu" lang="te">
-
-
-<h2>
-తెలుగు
-</h2>
-
-
-<h2>
-విశేషాలు
-</h2>
-
-
-<p>
-
-<strong>
-జననం:
-</strong>
-
-కేరళలోని కాలడీ గ్రామంలో శివగురు, ఆర్యాంబ దంపతులకు
-జన్మించారు.
-
-</p>
-
-
-<p>
-
-<strong>
-బాల్యం:
-</strong>
-
-చిన్న వయస్సులోనే వేద విద్యలను అభ్యసించి అసాధారణ
-ప్రతిభను ప్రదర్శించారు.
-
-</p>
-
-
-<p>
-
-<strong>
-సన్యాసం:
-</strong>
-
-చిన్న వయస్సులోనే సన్యాసం స్వీకరించి దేశవ్యాప్తంగా
-పర్యటించారు.
-
-</p>
-
-
-<p>
-
-<strong>
-స్థాపనలు:
-</strong>
-
-దేశం నలుమూలల నాలుగు పీఠాల సంప్రదాయాన్ని స్థాపించి
-ఆధ్యాత్మిక ఐక్యతకు కృషి చేశారు —
-జ్యోతిర్మఠం, శృంగేరి పీఠం, ద్వారకా పీఠం, పూరీ పీఠం.
-
-</p>
-
-
-<p>
-
-<strong>
-సిద్ధాంతం:
-</strong>
-
-అద్వైత సిద్ధాంతాన్ని బలంగా ప్రచారం చేసి సనాతన ధర్మ
-పునరుద్ధరణకు కృషి చేశారు.
-
-</p>
-
-
-<p>
-
-<strong>
-ముక్తి:
-</strong>
-
-సంప్రదాయం ప్రకారం ఉత్తరాఖండ్‌లోని కేదార్‌నాథ్
-క్షేత్రంలో 32వ ఏట భౌతిక శరీరాన్ని విడిచి
-ముక్తిని పొందారు.
-
-</p>
-
-
-<p>
-
-<strong>
-సనాతన ధర్మానికి చెదలు పట్టినప్పుడల్లా పురుగు మందు
-చల్లి సంస్కరించిన మహనీయుడు శ్రీ ఆదిశంకరాచార్యులు.
-</strong>
-
-</p>
-
-
-<p>
-
-<strong>
-అహం బ్రహ్మాస్మి:
-</strong>
-
-జీవుడు మరియు పరమాత్మ వేరు వేరు కావు,
-నేనే పరబ్రహ్మను అనే అద్వైత భావన.
-
-</p>
-
-
-<div class="quote">
-
-సదాశివసమారంభాం శంకరాచార్యమధ్యమామ్ ।<br>
-
-అస్మదాచార్యపర్యన్తాం వన్దే గురుపరమ్పరామ్ ॥
-
-</div>
-
-
-</div>
-
+    <div class="footer">
+        © Friends Youth • Kallur
+    </div>
 
 </div>
 
 </div>
-
 
 </body>
-
 </html>
