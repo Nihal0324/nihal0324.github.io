@@ -1,109 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Jagadguru Sri Adi Shankaracharya</title>
 
+
 <style>
 
-/* =========================================================
-   BASIC PAGE
-   ========================================================= */
+/* =========================
+   PAGE
+========================= */
 
 * {
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     background: #fff8ed;
     color: #3b2415;
-    font-family: Georgia, "Noto Serif Telugu", "Nirmala UI", serif;
+    font-family:
+        Georgia,
+        "Noto Serif Telugu",
+        "Nirmala UI",
+        serif;
     line-height: 1.75;
 }
 
 
-/* =========================================================
-   OPENING SPLASH SCREEN
-   ========================================================= */
+/* =========================
+   3 SECOND INTRO
+========================= */
 
 #splash {
+
     position: fixed;
+
     inset: 0;
+
     z-index: 99999;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #21170c 0%,
-            #0b0805 45%,
-            #020201 100%
-        );
-
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     overflow: hidden;
 
-    animation: splashFadeOut 1.2s ease-in-out 4s forwards;
+    background:
+        radial-gradient(
+            circle at center,
+            #2b1c0b 0%,
+            #0c0804 45%,
+            #020201 100%
+        );
+
+    animation:
+        splashOut 1s ease-in-out 3s forwards;
 }
 
 
-/* Golden light behind logo */
+/* Golden light */
 
 .light {
+
     position: absolute;
 
-    width: 280px;
-    height: 280px;
+    width: 300px;
+
+    height: 300px;
 
     border-radius: 50%;
 
-    background: radial-gradient(
-        circle,
-        rgba(224,178,72,0.28) 0%,
-        rgba(224,178,72,0.10) 35%,
-        rgba(224,178,72,0) 70%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(230,185,80,0.30) 0%,
+            rgba(230,185,80,0.10) 40%,
+            rgba(230,185,80,0) 72%
+        );
 
-    animation: lightPulse 2.5s ease-in-out infinite;
+    animation:
+        lightPulse 2s ease-in-out infinite;
 }
 
 
-/* Outer golden ring */
+/* Golden ring */
 
 .ring {
+
     position: absolute;
 
-    width: min(78vw, 430px);
-    height: min(78vw, 430px);
+    width: min(78vw, 440px);
+
+    height: min(78vw, 440px);
 
     border-radius: 50%;
 
-    border: 2px solid rgba(226,181,77,0.85);
+    border: 2px solid
+        rgba(226,181,77,0.85);
 
     box-shadow:
-        0 0 25px rgba(226,181,77,0.15),
-        inset 0 0 25px rgba(226,181,77,0.08);
+        0 0 30px
+        rgba(226,181,77,0.20);
 
     opacity: 0;
 
     animation:
-        ringAppear 1.8s cubic-bezier(.16,1,.3,1) .15s forwards,
-        ringGlow 2s ease-in-out 2s infinite alternate;
+        ringAppear 1.4s
+        cubic-bezier(.16,1,.3,1)
+        .1s forwards;
 }
 
 
-/* Second ring */
+/* Inner ring */
 
 .ring::before {
+
     content: "";
 
     position: absolute;
@@ -112,37 +131,43 @@ body {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(226,181,77,0.45);
+    border: 1px solid
+        rgba(226,181,77,0.45);
 }
 
 
-/* Rotating dotted ring */
+/* Rotating decorative ring */
 
 .ring::after {
+
     content: "";
 
     position: absolute;
 
-    inset: 35px;
+    inset: 38px;
 
     border-radius: 50%;
 
-    border: 1px dashed rgba(226,181,77,0.35);
+    border:
+        1px dashed
+        rgba(226,181,77,0.35);
 
-    animation: rotateRing 15s linear infinite;
+    animation:
+        rotateRing 10s linear infinite;
 }
 
 
-/* =========================================================
+/* =========================
    LOGO
-   ========================================================= */
+========================= */
 
 .splash-logo {
 
     position: relative;
 
-    width: min(58vw, 330px);
-    height: min(58vw, 330px);
+    width: min(60vw, 340px);
+
+    height: min(60vw, 340px);
 
     object-fit: contain;
 
@@ -151,27 +176,30 @@ body {
     opacity: 0;
 
     transform:
-        scale(0.45)
-        rotate(-12deg);
-
-    filter:
-        drop-shadow(0 0 0 rgba(226,181,77,0));
+        scale(.45)
+        rotate(-10deg);
 
     animation:
-        logoAppear 1.7s cubic-bezier(.16,1,.3,1) .35s forwards,
-        logoGlow 2s ease-in-out 2s infinite alternate;
+
+        logoAppear 1.4s
+        cubic-bezier(.16,1,.3,1)
+        .2s forwards,
+
+        logoGlow 1.5s
+        ease-in-out
+        1.2s infinite alternate;
 }
 
 
-/* =========================================================
-   BRAND TEXT
-   ========================================================= */
+/* =========================
+   BRAND NAME
+========================= */
 
 .splash-text {
 
     position: absolute;
 
-    bottom: 9vh;
+    bottom: 8vh;
 
     text-align: center;
 
@@ -179,18 +207,19 @@ body {
 
     font-family: Arial, sans-serif;
 
-    letter-spacing: 3px;
-
     font-size: 15px;
 
     font-weight: bold;
+
+    letter-spacing: 3px;
 
     opacity: 0;
 
     transform: translateY(15px);
 
     animation:
-        textAppear 1s ease 1.4s forwards;
+        textAppear .8s
+        ease 1s forwards;
 }
 
 
@@ -204,15 +233,15 @@ body {
 
     font-size: 10px;
 
-    letter-spacing: 2px;
-
     font-weight: normal;
+
+    letter-spacing: 2px;
 }
 
 
-/* =========================================================
+/* =========================
    MAIN CONTENT
-   ========================================================= */
+========================= */
 
 #main-content {
 
@@ -221,7 +250,8 @@ body {
     transform: translateY(20px);
 
     animation:
-        contentAppear 1s ease 4.35s forwards;
+        contentAppear 1s
+        ease 3.35s forwards;
 }
 
 
@@ -233,7 +263,10 @@ body {
 
     margin: auto;
 
-    padding: 25px 18px 50px;
+    padding:
+        20px
+        18px
+        50px;
 }
 
 
@@ -243,7 +276,10 @@ header {
 
     text-align: center;
 
-    padding: 25px 10px 15px;
+    padding:
+        25px
+        10px
+        15px;
 }
 
 
@@ -253,7 +289,8 @@ header h1 {
 
     color: #8b4513;
 
-    font-size: clamp(25px, 7vw, 42px);
+    font-size:
+        clamp(25px, 7vw, 42px);
 
     line-height: 1.3;
 }
@@ -267,17 +304,21 @@ header h2 {
 
     border: none;
 
-    font-size: clamp(18px, 5vw, 27px);
+    font-size:
+        clamp(18px, 5vw, 27px);
 }
 
 
-/* Sanskrit quote */
+/* =========================
+   SANSKRIT
+========================= */
 
 .quote {
 
     text-align: center;
 
-    font-size: clamp(16px, 4.5vw, 20px);
+    font-size:
+        clamp(16px, 4.5vw, 20px);
 
     font-weight: bold;
 
@@ -289,7 +330,9 @@ header h2 {
 }
 
 
-/* Content cards */
+/* =========================
+   CONTENT CARDS
+========================= */
 
 .card {
 
@@ -302,7 +345,8 @@ header h2 {
     border-radius: 15px;
 
     box-shadow:
-        0 3px 15px rgba(90,50,15,0.10);
+        0 3px 15px
+        rgba(90,50,15,0.10);
 }
 
 
@@ -310,7 +354,8 @@ header h2 {
 
     color: #9b4d16;
 
-    border-bottom: 1px solid #d8b08a;
+    border-bottom:
+        1px solid #d8b08a;
 
     padding-bottom: 7px;
 
@@ -352,31 +397,37 @@ strong {
 }
 
 
-/* =========================================================
+/* =========================
    ANIMATIONS
-   ========================================================= */
+========================= */
 
 @keyframes logoAppear {
 
     0% {
+
         opacity: 0;
+
         transform:
-            scale(0.45)
-            rotate(-12deg);
+            scale(.45)
+            rotate(-10deg);
     }
 
     60% {
+
         opacity: 1;
+
         transform:
             scale(1.08)
             rotate(2deg);
     }
 
     100% {
+
         opacity: 1;
+
         transform:
             scale(1)
-            rotate(0deg);
+            rotate(0);
     }
 }
 
@@ -384,18 +435,20 @@ strong {
 @keyframes logoGlow {
 
     0% {
+
         filter:
             drop-shadow(
                 0 0 3px
-                rgba(226,181,77,0.2)
+                rgba(226,181,77,.20)
             );
     }
 
     100% {
+
         filter:
             drop-shadow(
-                0 0 25px
-                rgba(226,181,77,0.55)
+                0 0 28px
+                rgba(226,181,77,.60)
             );
     }
 }
@@ -404,34 +457,27 @@ strong {
 @keyframes ringAppear {
 
     0% {
+
         opacity: 0;
-        transform: scale(0.25);
+
+        transform:
+            scale(.25);
     }
 
     70% {
+
         opacity: 1;
-        transform: scale(1.08);
+
+        transform:
+            scale(1.08);
     }
 
     100% {
+
         opacity: 1;
-        transform: scale(1);
-    }
-}
 
-
-@keyframes ringGlow {
-
-    0% {
-        box-shadow:
-            0 0 20px rgba(226,181,77,0.15),
-            inset 0 0 20px rgba(226,181,77,0.05);
-    }
-
-    100% {
-        box-shadow:
-            0 0 55px rgba(226,181,77,0.38),
-            inset 0 0 35px rgba(226,181,77,0.10);
+        transform:
+            scale(1);
     }
 }
 
@@ -439,11 +485,15 @@ strong {
 @keyframes rotateRing {
 
     from {
-        transform: rotate(0deg);
+
+        transform:
+            rotate(0deg);
     }
 
     to {
-        transform: rotate(360deg);
+
+        transform:
+            rotate(360deg);
     }
 }
 
@@ -451,18 +501,27 @@ strong {
 @keyframes lightPulse {
 
     0% {
-        transform: scale(0.85);
-        opacity: 0.45;
+
+        transform:
+            scale(.85);
+
+        opacity: .45;
     }
 
     50% {
-        transform: scale(1.25);
-        opacity: 0.9;
+
+        transform:
+            scale(1.25);
+
+        opacity: .9;
     }
 
     100% {
-        transform: scale(0.85);
-        opacity: 0.45;
+
+        transform:
+            scale(.85);
+
+        opacity: .45;
     }
 }
 
@@ -470,27 +529,38 @@ strong {
 @keyframes textAppear {
 
     from {
+
         opacity: 0;
-        transform: translateY(15px);
+
+        transform:
+            translateY(15px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 
-@keyframes splashFadeOut {
+@keyframes splashOut {
 
     0% {
+
         opacity: 1;
+
         visibility: visible;
     }
 
     100% {
+
         opacity: 0;
+
         visibility: hidden;
+
         pointer-events: none;
     }
 }
@@ -499,53 +569,70 @@ strong {
 @keyframes contentAppear {
 
     from {
+
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+            translateY(20px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 
-/* =========================================================
+/* =========================
    MOBILE
-   ========================================================= */
+========================= */
 
 @media (max-width: 600px) {
 
     .container {
-        padding: 18px 13px 40px;
+
+        padding:
+            18px
+            13px
+            40px;
     }
 
     .card {
+
         padding: 18px;
+
         border-radius: 12px;
     }
 
     .splash-logo {
+
         width: 62vw;
+
         height: 62vw;
     }
 
     .splash-text {
+
         bottom: 8vh;
+
         font-size: 13px;
     }
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ======================================================
-     OPENING LOGO
-     ====================================================== -->
+<!-- =================================================
+     FRIENDS YOUTH OPENING
+================================================= -->
 
 <div id="splash">
 
@@ -553,11 +640,13 @@ strong {
 
     <div class="ring"></div>
 
+
     <img
         src="logo.jpg"
         class="splash-logo"
-        alt="Friends Youth Kallur Ganesh Logo"
+        alt="Friends Youth Kallur"
     >
+
 
     <div class="splash-text">
 
@@ -573,9 +662,9 @@ strong {
 
 
 
-<!-- ======================================================
-     MAIN PAGE
-     ====================================================== -->
+<!-- =================================================
+     MAIN CONTENT
+================================================= -->
 
 <div id="main-content">
 
@@ -598,7 +687,9 @@ Jagadguru Sri Adi Shankaracharya
 
 <div class="quote">
 
-శ్రుతి స్మృతి పురాణానాం ఆలయం కరుణాలయం<br>
+శ్రుతి స్మృతి పురాణానాం ఆలయం కరుణాలయం
+
+<br>
 
 నమామి భగవత్పాద శంకరం లోక శంకరం
 
@@ -606,23 +697,27 @@ Jagadguru Sri Adi Shankaracharya
 
 
 
-<!-- ======================================================
-     ENGLISH
-     ====================================================== -->
+<!-- ================= ENGLISH ================= -->
 
 <div class="card">
 
-<h2>ENGLISH</h2>
+<h2>
+ENGLISH
+</h2>
 
 
 <p>
 
-<strong>Adi Shankaracharya</strong>
+<strong>
+Adi Shankaracharya
+</strong>
+
 was an 8th-century CE Indian philosopher and monk
 who consolidated the doctrine of Advaita Vedanta and
 traveled across India to revive Vedic studies.
 
 </p>
+
 
 
 <h2>
@@ -632,7 +727,10 @@ EARLY LIFE AND CHILDHOOD
 
 <p>
 
-<strong>Birth:</strong>
+<strong>
+Birth:
+</strong>
+
 Born in Kalady, Kerala, to Nambudiri Brahmin parents
 Sivaguru and Aryamba after long prayers.
 
@@ -641,7 +739,10 @@ Sivaguru and Aryamba after long prayers.
 
 <p>
 
-<strong>Prodigy:</strong>
+<strong>
+Prodigy:
+</strong>
+
 Mastered the four Vedas and Sanskrit by a very young age.
 
 </p>
@@ -649,7 +750,10 @@ Mastered the four Vedas and Sanskrit by a very young age.
 
 <p>
 
-<strong>The Crocodile Incident:</strong>
+<strong>
+The Crocodile Incident:
+</strong>
+
 At age eight, a crocodile caught his leg; he used the
 moment to convince his reluctant mother to let him take
 Sannyasa (renunciation/monastic life).
@@ -665,7 +769,10 @@ EDUCATION AND TRAVELS
 
 <p>
 
-<strong>Finding a Guru:</strong>
+<strong>
+Finding a Guru:
+</strong>
+
 Left home and traveled to the banks of the Narmada River,
 where he found his guru, Govinda Bhagavatpada.
 
@@ -674,7 +781,10 @@ where he found his guru, Govinda Bhagavatpada.
 
 <p>
 
-<strong>Nationwide Journey:</strong>
+<strong>
+Nationwide Journey:
+</strong>
+
 Traveled across India to engage in philosophical debates,
 unify spiritual teachings, and restore Sanatana Dharma.
 
@@ -683,7 +793,10 @@ unify spiritual teachings, and restore Sanatana Dharma.
 
 <p>
 
-<strong>Major Debates:</strong>
+<strong>
+Major Debates:
+</strong>
+
 Defeated prominent scholars of rival traditions,
 most notably the ritualist philosopher Mandana Mishra.
 
@@ -698,7 +811,10 @@ LEGACY AND MONASTERIES
 
 <p>
 
-<strong>Advaita Vedanta:</strong>
+<strong>
+Advaita Vedanta:
+</strong>
+
 Wrote foundational commentaries on the Principal
 Upanishads, the Brahma Sutras, and the Bhagavad Gita.
 
@@ -707,17 +823,24 @@ Upanishads, the Brahma Sutras, and the Bhagavad Gita.
 
 <p>
 
-<strong>Four Mathas:</strong>
-Established four major monasteries associated with the
-four directions of India—Sringeri (South), Puri (East),
-Dwarka (West), and Jyotirmath/Badrinath tradition (North).
+<strong>
+Four Mathas:
+</strong>
+
+Established four major monasteries associated with
+the four directions of India—Sringeri (South),
+Puri (East), Dwarka (West), and Jyotirmath/Badrinath
+tradition (North).
 
 </p>
 
 
 <p>
 
-<strong>Passing:</strong>
+<strong>
+Passing:
+</strong>
+
 Traditionally believed to have left his mortal body
 at the age of 32 at Kedarnath.
 
@@ -727,9 +850,7 @@ at the age of 32 at Kedarnath.
 
 
 
-<!-- ======================================================
-     TELUGU
-     ====================================================== -->
+<!-- ================= TELUGU ================= -->
 
 <div class="card telugu" lang="te">
 
@@ -746,7 +867,10 @@ at the age of 32 at Kedarnath.
 
 <p>
 
-<strong>జననం:</strong>
+<strong>
+జననం:
+</strong>
+
 కేరళలోని కాలడీ గ్రామంలో శివగురు, ఆర్యాంబ దంపతులకు
 జన్మించారు.
 
@@ -755,7 +879,10 @@ at the age of 32 at Kedarnath.
 
 <p>
 
-<strong>బాల్యం:</strong>
+<strong>
+బాల్యం:
+</strong>
+
 చిన్న వయస్సులోనే వేద విద్యలను అభ్యసించి అసాధారణ
 ప్రతిభను ప్రదర్శించారు.
 
@@ -764,7 +891,10 @@ at the age of 32 at Kedarnath.
 
 <p>
 
-<strong>సన్యాసం:</strong>
+<strong>
+సన్యాసం:
+</strong>
+
 చిన్న వయస్సులోనే సన్యాసం స్వీకరించి దేశవ్యాప్తంగా
 పర్యటించారు.
 
@@ -773,17 +903,23 @@ at the age of 32 at Kedarnath.
 
 <p>
 
-<strong>స్థాపనలు:</strong>
+<strong>
+స్థాపనలు:
+</strong>
+
 దేశం నలుమూలల నాలుగు పీఠాల సంప్రదాయాన్ని స్థాపించి
-ఆధ్యాత్మిక ఐక్యతకు కృషి చేశారు — జ్యోతిర్మఠం,
-శృంగేరి పీఠం, ద్వారకా పీఠం, పూరీ పీఠం.
+ఆధ్యాత్మిక ఐక్యతకు కృషి చేశారు —
+జ్యోతిర్మఠం, శృంగేరి పీఠం, ద్వారకా పీఠం, పూరీ పీఠం.
 
 </p>
 
 
 <p>
 
-<strong>సిద్ధాంతం:</strong>
+<strong>
+సిద్ధాంతం:
+</strong>
+
 అద్వైత సిద్ధాంతాన్ని బలంగా ప్రచారం చేసి సనాతన ధర్మ
 పునరుద్ధరణకు కృషి చేశారు.
 
@@ -792,7 +928,10 @@ at the age of 32 at Kedarnath.
 
 <p>
 
-<strong>ముక్తి:</strong>
+<strong>
+ముక్తి:
+</strong>
+
 సంప్రదాయం ప్రకారం ఉత్తరాఖండ్‌లోని కేదార్‌నాథ్
 క్షేత్రంలో 32వ ఏట భౌతిక శరీరాన్ని విడిచి
 ముక్తిని పొందారు.
@@ -803,8 +942,8 @@ at the age of 32 at Kedarnath.
 <p>
 
 <strong>
-సనాతన ధర్మానికి చెదలు పట్టినప్పుడల్లా పురుగు మందు చల్లి
-సంస్కరించిన మహనీయుడు శ్రీ ఆదిశంకరాచార్యులు.
+సనాతన ధర్మానికి చెదలు పట్టినప్పుడల్లా పురుగు మందు
+చల్లి సంస్కరించిన మహనీయుడు శ్రీ ఆదిశంకరాచార్యులు.
 </strong>
 
 </p>
@@ -812,12 +951,14 @@ at the age of 32 at Kedarnath.
 
 <p>
 
-<strong>అహం బ్రహ్మాస్మి:</strong>
+<strong>
+అహం బ్రహ్మాస్మి:
+</strong>
+
 జీవుడు మరియు పరమాత్మ వేరు వేరు కావు,
 నేనే పరబ్రహ్మను అనే అద్వైత భావన.
 
 </p>
-
 
 
 <div class="quote">
@@ -837,33 +978,6 @@ at the age of 32 at Kedarnath.
 </div>
 
 
-<script>
-
-/*
-   The logo intro runs for approximately 4 seconds.
-   After that the splash disappears automatically.
-
-   If the visitor has enabled reduced motion,
-   the page still works normally.
-*/
-
-const splash = document.getElementById("splash");
-
-if (
-    window.matchMedia &&
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches
-) {
-
-    splash.style.animationDuration = "0.5s";
-
-    splash.style.animationDelay = "3s";
-
-}
-
-</script>
-
-
 </body>
+
 </html>
