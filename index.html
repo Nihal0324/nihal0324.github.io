@@ -8,10 +8,6 @@
 
 <style>
 
-/* ==============================
-   BASIC PAGE
-   ============================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -54,7 +50,6 @@ body {
             #120900 100%
         );
 
-    /* ONLY TIME CHANGED: 3s → 2s */
     animation: splashOut 1s ease-in-out 2s forwards;
 }
 
@@ -80,11 +75,12 @@ body {
 
     filter: blur(10px);
 
-    animation: lightPulse 1.8s ease-in-out infinite alternate;
+    animation:
+        lightPulse 1.8s ease-in-out infinite alternate;
 }
 
 
-/* Additional golden rays */
+/* Golden rays */
 
 #splash::after {
     content: "";
@@ -104,7 +100,8 @@ body {
 
     opacity: 0.45;
 
-    animation: raysRotate 18s linear infinite;
+    animation:
+        raysRotate 18s linear infinite;
 }
 
 
@@ -151,15 +148,15 @@ body {
 
 
 /* ==============================
-   LOGO
+   LARGE LOGO
    ============================== */
 
 .splash-logo {
     position: relative;
     z-index: 3;
 
-    width: 190px;
-    height: 190px;
+    width: 230px;
+    height: 230px;
 
     object-fit: contain;
 
@@ -169,6 +166,8 @@ body {
 
     transform: scale(0.45);
 
+    margin: 0;
+
     animation:
         logoAppear 1.4s cubic-bezier(.16,1,.3,1) .2s forwards,
         logoGlow 1.5s ease-in-out 1.2s infinite alternate;
@@ -176,14 +175,14 @@ body {
 
 
 /* ==============================
-   SPLASH TEXT
+   TITLE
    ============================== */
 
 .splash-title {
     position: relative;
     z-index: 3;
 
-    margin-top: 25px;
+    margin-top: 16px;
 
     color: #ffd76a;
 
@@ -195,6 +194,8 @@ body {
 
     text-align: center;
 
+    line-height: 1.2;
+
     opacity: 0;
 
     transform: translateY(15px);
@@ -204,11 +205,15 @@ body {
 }
 
 
+/* ==============================
+   SUBTITLE
+   ============================== */
+
 .splash-subtitle {
     position: relative;
     z-index: 3;
 
-    margin-top: 7px;
+    margin-top: 8px;
 
     color: #fff1c4;
 
@@ -218,6 +223,8 @@ body {
 
     text-align: center;
 
+    line-height: 1.3;
+
     opacity: 0;
 
     animation:
@@ -226,7 +233,7 @@ body {
 
 
 /* ==============================
-   SPLASH ANIMATIONS
+   ANIMATIONS
    ============================== */
 
 @keyframes logoAppear {
@@ -370,7 +377,6 @@ body {
 
     transform: translateY(20px);
 
-    /* ONLY TIME CHANGED: 3.35s → 2.35s */
     animation:
         contentAppear 1s ease 2.35s forwards;
 }
@@ -386,7 +392,7 @@ body {
 
 
 /* ==============================
-   CONTENT CONTAINER
+   CONTENT
    ============================== */
 
 .container {
@@ -398,10 +404,6 @@ body {
         25px 15px 50px;
 }
 
-
-/* ==============================
-   HEADER
-   ============================== */
 
 .header {
     text-align: center;
@@ -428,10 +430,6 @@ body {
     font-style: italic;
 }
 
-
-/* ==============================
-   SECTIONS
-   ============================== */
 
 .section {
 
@@ -538,44 +536,44 @@ body {
 
     .splash-logo {
 
-        width: 160px;
-        height: 160px;
+        width: 200px;
+        height: 200px;
     }
-
 
     .splash-ring {
 
-        width: 270px;
-        height: 270px;
+        width: 290px;
+        height: 290px;
     }
-
 
     .splash-ring2 {
 
-        width: 295px;
-        height: 295px;
+        width: 315px;
+        height: 315px;
     }
-
 
     .splash-title {
 
         font-size: 17px;
 
         letter-spacing: 1.5px;
-    }
 
+        margin-top: 14px;
+    }
 
     .splash-subtitle {
 
         font-size: 12px;
-    }
 
+        letter-spacing: 1.2px;
+
+        margin-top: 6px;
+    }
 
     .header h1 {
 
         font-size: 27px;
     }
-
 
     .section {
 
@@ -601,7 +599,6 @@ body {
 
     <div class="splash-ring2"></div>
 
-    <!-- Your Friends Youth logo -->
     <img
         src="logo.jpg"
         class="splash-logo"
@@ -629,10 +626,6 @@ body {
 <div class="container">
 
 
-    <!-- ==========================
-         ENGLISH HEADER
-         ========================== -->
-
     <div class="header">
 
         <h1>ADI SHANKARACHARYA</h1>
@@ -647,10 +640,6 @@ body {
 
 
 
-    <!-- ==========================
-         EARLY LIFE
-         ========================== -->
-
     <div class="section">
 
         <h2>EARLY LIFE AND CHILDHOOD</h2>
@@ -662,14 +651,12 @@ body {
             Sivaguru and Aryamba after long prayers.
         </p>
 
-
         <h3>Prodigy:</h3>
 
         <p>
             Mastered the four Vedas and Sanskrit by a very young
             age (eight years old).
         </p>
-
 
         <h3>The Crocodile Incident:</h3>
 
@@ -684,14 +671,9 @@ body {
 
 
 
-    <!-- ==========================
-         EDUCATION
-         ========================== -->
-
     <div class="section">
 
         <h2>EDUCATION AND TRAVELS</h2>
-
 
         <h3>Finding a Guru:</h3>
 
@@ -700,7 +682,6 @@ body {
             River, where he found his guru, Govinda Bhagavatpada.
         </p>
 
-
         <h3>Nationwide Journey:</h3>
 
         <p>
@@ -708,7 +689,6 @@ body {
             philosophical debates, unify spiritual teachings,
             and restore Sanatana Dharma.
         </p>
-
 
         <h3>Major Debates:</h3>
 
@@ -721,14 +701,9 @@ body {
 
 
 
-    <!-- ==========================
-         LEGACY
-         ========================== -->
-
     <div class="section">
 
         <h2>LEGACY AND MONASTERIES</h2>
-
 
         <h3>Advaita Vedanta:</h3>
 
@@ -737,7 +712,6 @@ body {
             Upanishads, the Brahma Sutras, and the Bhagavad Gita.
         </p>
 
-
         <h3>Four Mathas:</h3>
 
         <p>
@@ -745,7 +719,6 @@ body {
             of India—at Sringeri (South), Puri (East), Dwarka
             (West), and Badrinath (North)—to preserve spiritual unity.
         </p>
-
 
         <h3>Passing:</h3>
 
@@ -757,10 +730,6 @@ body {
     </div>
 
 
-
-    <!-- ==========================
-         TELUGU CONTENT
-         ========================== -->
 
     <div class="section telugu">
 
@@ -857,10 +826,6 @@ body {
     </div>
 
 
-
-    <!-- ==========================
-         FOOTER
-         ========================== -->
 
     <div class="footer">
 
